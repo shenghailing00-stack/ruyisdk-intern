@@ -71,7 +71,4 @@
 
 对我来说，这次安装和初次使用的过程，不只是一次技术上的尝试，也让我更具体地意识到：  
 一个新用户从想尝试 RISC-V到真正跑通环境，中间其实会经历很多理解和操作上的细小阻碍。
-
 而这也让我更能理解，社区内容、文档组织和新手引导体验，为什么会对一个技术生态的扩展起到重要作用。
-For me, this first installation and use experience was not only a technical trial, but also a useful way to understand how new users may enter the RISC-V ecosystem.  
-It also helped me think more concretely about how community content, documentation, and onboarding experience can support users more effectively.
