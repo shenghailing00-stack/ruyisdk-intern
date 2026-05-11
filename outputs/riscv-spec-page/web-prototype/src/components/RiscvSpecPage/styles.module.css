@@ -68,6 +68,75 @@
   line-height: 1.85;
 }
 
+.overviewContent :global(.ratified-lifecycle) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 18px;
+}
+
+.overviewContent :global(.ratified-step) {
+  position: relative;
+  border: 1px solid rgba(10, 44, 126, 0.11);
+  border-radius: 8px;
+  background: rgba(248, 250, 255, 0.82);
+  padding: 14px 16px;
+}
+
+.overviewContent :global(.ratified-step:not(:last-child)::after) {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid rgba(10, 44, 126, 0.34);
+  border-right: 2px solid rgba(10, 44, 126, 0.34);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.overviewContent :global(.ratified-step strong) {
+  display: block;
+  color: var(--ifm-color-primary);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.overviewContent :global(.ratified-step span) {
+  display: block;
+  margin-top: 5px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.overviewContent :global(.spec-note) {
+  margin: 20px 0 30px;
+  border: 1px solid rgba(10, 44, 126, 0.12);
+  border-left: 5px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  background: rgba(248, 250, 255, 0.9);
+  padding: 18px 20px;
+}
+
+.overviewContent :global(.spec-note strong) {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ifm-color-primary);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.overviewContent :global(.spec-note p) {
+  margin-bottom: 10px;
+  color: var(--ifm-color-emphasis-800);
+  line-height: 1.75;
+}
+
+.overviewContent :global(.spec-note p:last-child) {
+  margin-bottom: 0;
+}
+
 .audienceGuide {
   margin-top: 30px;
   border-top: 1px solid rgba(16, 36, 122, 0.08);
@@ -332,6 +401,19 @@
   text-decoration: none;
 }
 
+.pageNote {
+  margin: 34px 0 0;
+  border-top: 1px solid rgba(16, 36, 122, 0.08);
+  padding-top: 18px;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.pageNote a {
+  color: var(--ifm-color-primary);
+}
+
 @media (max-width: 760px) {
   .container {
     width: min(100% - 24px, 1180px);
@@ -384,6 +466,17 @@
   .overviewContent h2 {
     margin-top: 26px;
     font-size: 1.18rem;
+  }
+
+  .overviewContent :global(.ratified-lifecycle) {
+    grid-template-columns: 1fr;
+  }
+
+  .overviewContent :global(.ratified-step:not(:last-child)::after) {
+    top: auto;
+    right: 50%;
+    bottom: -10px;
+    transform: translateX(50%) rotate(135deg);
   }
 
   .categoryHeader,

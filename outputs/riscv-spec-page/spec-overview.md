@@ -2,23 +2,48 @@
 
 > **致读者**
 >
-> 如果你第一次打开 RISC-V 规范目录，不需要急着把所有 PDF 都读完。可以先把这页当作地图：先看每类规范解决什么问题，再按自己的学习或开发任务进入对应文档。
+> 欢迎大家来到 RISC-V Ratified Specs 导览页。这里整理了 RuyiSDK 镜像中已收录的已批准规范，方便大家先按关注方向快速找到对应文档；涉及实现细节时，再回到规范原文阅读即可。
 
-这份导览面向刚开始接触 RISC-V 的开发者、RuyiSDK 用户，以及需要快速找到规范下载入口的人。RuyiSDK 镜像目录收录了一批已经批准的 RISC-V 规范文件，适合用于学习、实现、移植、适配和工程查阅。
+RISC-V 不仅包含基础/用户态指令集（Unprivileged ISA）和特权架构（Privileged ISA），也围绕平台软件、硬件接口、调试追踪和应用使能形成了一整套规范体系。
 
-本页是帮助定位和理解规范用途的导览页，不替代规范原文；涉及实现细节时，请以 PDF 原文为准。
 
-## 什么是 Ratified Spec
+## Ratified Spec
 
-Ratified Spec 可以理解为 RISC-V International 已经正式批准的规范。相比草案或讨论中的文档，Ratified Spec 更适合作为工程实现和长期维护的依据：芯片、操作系统、固件、工具链、调试器和应用生态可以围绕这些规范建立更稳定的兼容关系。
+Ratified Spec 是 RISC-V International 已经正式批准的规范版本。
 
-一份规范通常不会一开始就是最终形态。它往往会先经过社区讨论，形成草案，再根据实现经验和反馈不断迭代，等内容足够成熟后才会被正式批准。Ratified Spec 就是已经走到批准阶段的版本，更适合作为实现、适配和兼容性判断的依据。
+<div class="ratified-lifecycle" role="list" aria-label="Ratified Spec 生命周期示意">
+  <div class="ratified-step" role="listitem">
+    <strong>Draft</strong>
+    <span>草案阶段，持续讨论与迭代</span>
+  </div>
+  <div class="ratified-step" role="listitem">
+    <strong>Review</strong>
+    <span>评审阶段，公开讨论与修订</span>
+  </div>
+  <div class="ratified-step" role="listitem">
+    <strong>Frozen</strong>
+    <span>冻结阶段，核心内容基本稳定</span>
+  </div>
+  <div class="ratified-step" role="listitem">
+    <strong>Ratified</strong>
+    <span>正式批准，可稳定引用</span>
+  </div>
+  <div class="ratified-step" role="listitem">
+    <strong>Stable Release</strong>
+    <span>稳定发布，供实现与适配参考</span>
+  </div>
+</div>
 
-不过，Ratified 并不表示每个人都需要从头读完所有文档。RISC-V 规范覆盖的范围很广，从基础指令集到平台固件、调试追踪、服务器 SoC、ABI 和向量 intrinsic 都有涉及。按分类阅读，可以先抓住自己当前任务需要的部分，避免一开始就被大量术语淹没。
+<div class="spec-note">
+  <strong>文档收录说明</strong>
+  <p>已批准（Ratified）和已经并入公开发布的规范文档，并不总是同一时间发生。RISC-V Technical Hub 的 <a href="https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154732/Ratified+ISA+Extensions">Ratified ISA Extensions</a> 页面中，带有超链接的条目表示这些扩展已经 ratified，但尚未合并进 Ratified Specifications Library 中已发布的最终规范文档；没有超链接的条目，通常已经可以在公开发布的规范文档中找到。</p>
+</div>
 
-## 建议按分类阅读
 
-RISC-V 官方 reference 页将规范放在几个大的方向下，这些方向对应不同的工程问题：
+## 可分类阅读
+
+大家可以按自己面对的工程问题，进入对应分类找规范。
+
 
 - Core Architecture：理解 RISC-V 处理器和软件运行模型的基础。
 - Profiles：理解某类平台应该具备哪些 ISA 能力组合，便于生态兼容。
@@ -26,19 +51,3 @@ RISC-V 官方 reference 页将规范放在几个大的方向下，这些方向�
 - Debug, Trace, and RAS：面向调试、执行追踪、错误记录和可靠性相关能力。
 - Platform Software：面向固件、启动、SBI、UEFI、平台管理等系统软件接口。
 - Application Enablement：面向 ABI、应用移植、semihosting、向量 intrinsic 等应用和工具链支持。
-
-用这个框架阅读时，可以先知道一份规范属于哪类问题，再决定是否深入细节。
-
-## 新手先看什么
-
-如果你刚接触 RISC-V，建议先从 Core Architecture 开始，优先理解 Unprivileged Architecture 和 Privileged Architecture。前者说明普通程序能看到的指令和执行模型，后者说明操作系统、异常、中断和特权级如何工作。
-
-如果你在使用 RuyiSDK 做系统软件、发行版或固件相关工作，可以接着看 Platform Software，尤其是 SBI、BRS、UEFI Protocol 和 RPMI。这些规范更贴近日常系统启动、内核交互和平台管理。
-
-如果你关心软件生态兼容，可以阅读 Profiles。Profiles 不是介绍某一条指令，而是说明一类平台应该满足哪些能力组合，适合用来判断软件是否能在目标 RISC-V 平台上稳定运行。
-
-如果你做硬件、SoC 或平台验证，可以阅读 Hardware 分类中的 IOMMU、PLIC、Server SoC、QoS 等规范。这些文档通常更偏硬件结构、平台接口和系统集成。
-
-如果你做调试器、追踪工具、可靠性分析或芯片 bring-up，可以阅读 Debug, Trace, and RAS。这里的文档会帮助你理解调试接口、追踪数据、trace connector、错误记录等能力。
-
-如果你做编译器、运行库、应用移植或向量库，可以阅读 Application Enablement。ABI 和 Vector Intrinsic 对软件生态尤其重要，它们决定了函数调用、二进制接口和向量代码如何被工具链支持。
