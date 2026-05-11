@@ -38,5 +38,13 @@
 
 \- `mirrorDate` 表示镜像目录日期，不代表规范官方发布日期
 
+## PR 状态
+
+当前首版实现已经提交到 RuyiSDK 官方 website 仓库：
+
+- https://github.com/ruyisdk/ruyisdk-website/pull/460
+
+后续如有修改，将根据该 PR 下的 review 意见和 maintainer 反馈继续更新。
+
 
 

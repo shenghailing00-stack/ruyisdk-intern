@@ -30,3 +30,11 @@
 
 \- 当前网页代码尚未提交到官方 `ruyisdk-website` 远端仓库，当前目录主要用于展示阶段性任务输出
 
+## Official PR
+
+本页面已提交到 RuyiSDK 官方 website 仓库，PR 链接如下：
+
+- https://github.com/ruyisdk/ruyisdk-website/pull/460
+
+本目录保留了与该 PR 对应的本地内容稿、原型代码、截图和实现说明，便于后续回溯和记录。
+
