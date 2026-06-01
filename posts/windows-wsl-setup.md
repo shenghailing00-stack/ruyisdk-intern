@@ -1,6 +1,6 @@
 # 面向 Windows 新手的 RuyiSDK + WSL 环境搭建记录：从 WSL 到 ruyi 可用验证
 
-这是一份个人整理记录，主要帮助 Windows 用户通过 WSL 准备 Ubuntu 环境，并衔接后续 RuyiSDK + QEMU 的 Hello World 示例。整理这份内容时，我尽量把 PowerShell 和 Ubuntu 终端的区别、每一步命令在哪里执行、以及新手容易遇到的问题写清楚。
+这是一份个人整理记录，主要帮助 Windows 用户通过 WSL 准备 Ubuntu 环境，并衔接后续 RuyiSDK + QEMU 的 Hello World 示例。
 
 ## 为什么先整理 WSL 环境
 
