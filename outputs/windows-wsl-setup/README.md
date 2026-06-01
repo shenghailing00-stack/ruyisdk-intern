@@ -20,6 +20,11 @@ Windows 用户基于 WSL 搭建 RuyiSDK 开发环境
 
 - [windows-wsl-setup.md](./windows-wsl-setup.md)
 
+## 发布情况
+
+- Forum post: [https://ruyisdk.cn/t/topic/2708](https://ruyisdk.cn/t/topic/2708)
+- Status: Published
+
 ## 说明
 
 该文档作为个人整理稿保存，后续可根据反馈调整后发布到 RuyiSDK 技术论坛或继续整理进正式文档。

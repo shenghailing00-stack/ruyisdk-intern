@@ -1,5 +1,7 @@
 # 面向 Windows 新手的 RuyiSDK + WSL 环境搭建记录：从 WSL 到 ruyi 可用验证
 
+Published at: https://ruyisdk.cn/t/topic/2708
+
 这是一份个人整理记录，主要帮助 Windows 用户通过 WSL 准备 Ubuntu 环境，并衔接后续 RuyiSDK + QEMU 的 Hello World 示例。
 
 ## 为什么先整理 WSL 环境
