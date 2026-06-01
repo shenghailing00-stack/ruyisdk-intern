@@ -1,4 +1,4 @@
-# 面向 Windows 新手的 RuyiSDK + WSL 环境搭建记录
+# 面向 Windows 新手的 RuyiSDK + WSL 环境搭建记录：从 WSL 到 ruyi 可用验证
 
 这是一份个人整理记录，主要帮助 Windows 用户通过 WSL 准备 Ubuntu 环境，并衔接后续 RuyiSDK + QEMU 的 Hello World 示例。整理这份内容时，我尽量把 PowerShell 和 Ubuntu 终端的区别、每一步命令在哪里执行、以及新手容易遇到的问题写清楚。
 
@@ -215,7 +215,7 @@ ruyi --help
 
 ## 下一步
 
-完成 WSL 和 `ruyi` 安装后，就可以继续阅读 RuyiSDK 入门内容，使用 `ruyi venv` 准备开发环境，安装或选择 `gnu-upstream` 工具链和 `qemu-upstream` 模拟器，并编写、编译、运行 Hello World 示例。
+本文主要完成 Windows + WSL 环境准备和 `ruyi` 可用性验证。完成本文步骤后，可以继续参考 RuyiSDK 官方文档或后续教程，使用 `ruyi venv` 配置 `gnu-upstream` 工具链和 `qemu-upstream` 模拟器，并尝试运行 Hello World 示例。
 
 后续如果没有特别说明，RuyiSDK、工具链、QEMU 和项目编译相关命令都建议在 WSL Ubuntu 终端中执行。
 
