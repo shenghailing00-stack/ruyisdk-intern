@@ -1,10 +1,8 @@
-# RuyiSDK + QEMU 零硬件运行 Hello World 复现记录
+# RuyiSDK + QEMU 零硬件运行 Hello World
 
 ## 目标
 
 在没有 RISC-V 实体开发板的情况下，基于已经准备好的 WSL/Ubuntu 环境，通过 RuyiSDK 创建隔离实验环境，使用 RISC-V GNU 工具链交叉编译一个最小 `hello.c` 程序，并通过 QEMU 用户态模拟器运行，验证输出结果。
-
-本文档当前作为复现流程整理稿，部分命令和输出需要在后续实际操作中进一步确认。待确认内容已标注“待实际验证”或“根据实际输出补充”。
 
 ## 适用对象
 
@@ -22,25 +20,9 @@
 
 > 说明：如果 `ruyi`、工具链或 QEMU 尚未安装，需要根据实际环境先完成安装或同步软件包索引。相关步骤待实际验证后补充精确输出。
 
-## 参考资料
+环境准备过程示意：
 
-- RuyiSDK 官方文档：根据实际引用链接补充
-- RuyiSDK 包管理与虚拟环境相关说明：根据实际引用链接补充
-- QEMU 用户态模拟相关资料：根据实际引用链接补充
-- 本仓库 Windows + WSL 环境搭建文档：`../windows-wsl-setup/`
-
-## 实验环境
-
-以下信息需要在实际复现时补充：
-
-| 项目 | 信息 |
-| --- | --- |
-| Windows 版本 | 根据实际环境补充 |
-| WSL 版本 | 根据实际环境补充 |
-| Ubuntu 版本 | 根据实际环境补充 |
-| RuyiSDK 版本 | 根据 `ruyi version` 或实际输出补充 |
-| RISC-V 工具链 | `gnu-upstream`，版本待实际验证 |
-| QEMU 模拟器 | `qemu-user-riscv-upstream`，版本待实际验证 |
+![安装前环境准备](./assets/01-prepare-environment.gif)
 
 ## 操作流程
 
@@ -59,6 +41,14 @@ ruyi version
 ```
 
 如提示找不到命令，需要先返回 RuyiSDK 安装步骤进行检查。
+
+RuyiSDK 安装及缺依赖处理过程示意：
+
+![安装 RuyiSDK 及处理缺依赖](./assets/02-install-ruyi-and-dependencies.gif)
+
+缺失依赖安装过程示意：
+
+![安装缺失依赖](./assets/03-install-dependencies.gif)
 
 ### 2. 创建实验目录
 
@@ -95,6 +85,10 @@ ruyi install qemu-user-riscv-upstream
 
 > 注意：不同版本 RuyiSDK 的包管理命令可能存在差异，此处需要结合实际输出修订。
 
+安装 `gnu-upstream` 过程示意：
+
+![安装 gnu-upstream](./assets/04-install-gnu-upstream.gif)
+
 ### 4. 创建 `ruyi venv`
 
 在实验目录中创建 Ruyi 虚拟环境，使工具链和模拟器的使用尽量与系统环境隔离：
@@ -108,6 +102,10 @@ ruyi venv -t gnu-upstream -e qemu-user-riscv-upstream .venv
 ```bash
 ruyi venv --help
 ```
+
+创建 Ruyi 虚拟环境过程示意：
+
+![创建 Ruyi 虚拟环境](./assets/06-create-venv.gif)
 
 ### 5. 激活虚拟环境
 
@@ -125,6 +123,14 @@ which qemu-riscv64
 ```
 
 命令名称可能因工具链配置而不同，需以实际虚拟环境中的可执行文件为准。
+
+激活虚拟环境过程示意：
+
+![激活 Ruyi 虚拟环境](./assets/07-activate-venv.gif)
+
+查看工具链命令过程示意：
+
+![查看 RISC-V 工具链](./assets/05-check-toolchain.gif)
 
 ### 6. 编写 `hello.c`
 
@@ -148,6 +154,10 @@ EOF
 cat hello.c
 ```
 
+编写 `hello.c` 过程示意：
+
+![编写 hello.c](./assets/08-write-hello-c.gif)
+
 ### 7. 使用 RISC-V 工具链编译
 
 使用 RISC-V GNU 工具链编译程序：
@@ -170,6 +180,10 @@ file hello-riscv
 
 预期应显示该文件为 RISC-V 架构的 ELF 可执行文件。具体输出根据实际结果补充。
 
+交叉编译过程示意：
+
+![编译 Hello World](./assets/09-compile-hello.gif)
+
 ### 8. 使用 QEMU 运行
 
 使用 QEMU 用户态模拟器运行 RISC-V 可执行文件：
@@ -179,6 +193,10 @@ qemu-riscv64 ./hello-riscv
 ```
 
 如果工具链生成的是动态链接程序，可能需要指定 RISC-V sysroot 或动态链接器路径。此部分待实际验证后补充。
+
+QEMU 运行过程示意：
+
+![使用 QEMU 运行 Hello World](./assets/10-run-with-qemu.gif)
 
 ### 9. 验证输出
 
@@ -192,24 +210,17 @@ Hello, RuyiSDK + QEMU!
 
 ## 运行结果
 
-运行结果待实际复现后补充，包括：
+运行结果以实际操作 GIF 为准，重点展示 QEMU 成功运行 Hello World 的过程：
+
+![QEMU 运行 Hello World 成功](./assets/10-run-with-qemu.gif)
+
+后续可继续根据实际输出补充以下文本信息：
 
 - `ruyi version` 输出
 - 工具链和 QEMU 的实际命令名称
 - `file hello-riscv` 输出
 - `qemu-riscv64 ./hello-riscv` 输出
 
-## 截图/GIF 展示
-
-以下 GIF 后续由实际录屏剪辑补充：
-
-![QEMU 运行 Hello World](./assets/qemu-hello-world.gif)
-
-也可在 `assets/` 目录中补充以下材料：
-
-- 虚拟环境创建过程截图
-- 编译命令执行截图
-- QEMU 运行结果截图或 GIF
 
 ## 常见问题
 
@@ -228,23 +239,3 @@ ls .venv/bin
 ### 3. QEMU 命令不存在
 
 如果 `qemu-riscv64` 不存在，需要确认 `qemu-user-riscv-upstream` 是否已经安装并被加入当前虚拟环境。
-
-### 4. 运行时提示缺少动态链接器或库
-
-如果 QEMU 运行动态链接程序时报错，可能需要指定 sysroot，或改用静态链接方式编译：
-
-```bash
-riscv64-unknown-linux-gnu-gcc -static hello.c -o hello-riscv
-qemu-riscv64 ./hello-riscv
-```
-
-该问题需要在实际复现时根据具体报错补充最终处理方式。
-
-## 后续整理计划
-
-- 实际复现完整流程，补充精确命令输出
-- 确认 `ruyi venv` 参数与当前 RuyiSDK 版本一致
-- 补充 `gnu-upstream` 和 `qemu-user-riscv-upstream` 的版本信息
-- 补充编译产物 `file` 命令输出
-- 录制并剪辑 QEMU 运行 Hello World GIF
-- 根据实际问题完善常见问题章节
