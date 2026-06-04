@@ -6,5 +6,5 @@ This folder collects visible outputs and related links from my RuyiSDK internshi
 
 - [RuyiSDK + QEMU Hello World demo](./hello-world-qemu/)
 - [Windows + WSL setup guide for RuyiSDK](./windows-wsl-setup/README.md)
-- [RISC-V Spec summary page](./riscv-spec-page/)
+- [RISC-V Spec page updates](./riscv-spec-page/)
 - [VS Code case1 code block rendering fix](./vscode-case1-code-block-rendering/)
