@@ -8,3 +8,4 @@ This folder collects visible outputs and related links from my RuyiSDK internshi
 - [Windows + WSL setup guide for RuyiSDK](./windows-wsl-setup/README.md)
 - [RISC-V Spec page updates](./riscv-spec-page/)
 - [VS Code case1 code block rendering fix](./vscode-case1-code-block-rendering/)
+- [VS Code Marketplace link fix](./vscode-marketplace-link-fix/)
