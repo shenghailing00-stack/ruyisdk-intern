@@ -9,3 +9,4 @@ This folder collects visible outputs and related links from my RuyiSDK internshi
 - [RISC-V Spec page updates](./riscv-spec-page/)
 - [VS Code case1 code block rendering fix](./vscode-case1-code-block-rendering/)
 - [VS Code Marketplace link fix](./vscode-marketplace-link-fix/)
+- [RuyiSDK docs navigation review and supplement checklist](./docs-navigation-review/)
