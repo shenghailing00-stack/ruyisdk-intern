@@ -7,9 +7,10 @@
 
 ## 参考文件
 
-- 导航大纲：`D:\code\xijing-ruyisdk-work\docs\navigation.md`
-- 官方文档仓库：`D:\code\ruyisdk-docs`
-- 个人实习仓库：`D:\code\ruyisdk-intern`
+- 导航大纲：`xijing21/ruyisdk-work/docs/navigation.md`
+- 对照仓库：`ruyisdk/docs`
+- 对照分支：`restructure-zh`
+- 产出仓库：`shenghailing00-stack/ruyisdk-intern`
 
 ## 对照目标
 
