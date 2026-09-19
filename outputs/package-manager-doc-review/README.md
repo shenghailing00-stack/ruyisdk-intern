@@ -44,25 +44,27 @@ WSL
 
 ## 已确认问题
 
-| 编号 | 文件 | 问题 | 依据 | 建议 |
+> 编号只是问题编号，不代表文件层级。下方“文档位置”可直接点击打开 `ruyisdk/docs` 的 `restructure-zh` 分支对应文件。
+
+| 编号 | 文档位置（点击打开） | 问题 | 依据 | 建议 |
 | --- | --- | --- | --- | --- |
-| 1 | `installation.mdx` | 当前仍把预编译二进制作为第一推荐安装方式，但目前产品方向已调整为优先推荐 PyPI。 | 已确认产品要求；`ruyisdk/ruyi/README.zh.md` 也将 PyPI 标为推荐方式。 | 将 PyPI 调整为第一推荐，并同步安装方式顺序与默认 Tab。 |
-| 2 | `_pythonPip.mdx` | PyPI 安装说明没有明确 Python 最低版本。 | `ruyisdk/ruyi/pyproject.toml` 在 0.48.0 与 0.52.0 均声明 `requires-python = ">=3.11"`。 | 明确写出 Python >= 3.11。 |
-| 3 | `misc.mdx` | 更新和卸载只覆盖预编译二进制和系统包管理器，没有覆盖 PyPI / pipx。 | 文档内部对照。 | PyPI 成为首选后补充对应升级与卸载说明。 |
-| 4 | `installation.mdx` / `_linuxPkg.mdx` | 顶层把系统包管理器安装概括为类似 `apt` / `yum`，并称前提是发行版官方收录；实际子页主要是 AUR、Arch Linux CN 与 Gentoo overlay。 | 文档内部对照。 | 调整顶层概括，使其与实际支持来源一致。 |
-| 5 | `index.md` | `ruyi list --name-contains` 与 `ruyi list --verbose --name-contains` 被当作完整命令，但该选项必须带参数。 | 本地运行提示 `expected 1 argument`，退出码 2；`ruyi/ruyipkg/list_cli.py` 中为 `nargs=1`。 | 修改说明或示例，但正式改命令前保持实际验证。 |
-| 6 | `index.md` | `ruyi news read` 被描述为“读取下一条新闻”，实际是不指定 item 时读取全部未读新闻。 | `ruyi/ruyipkg/news_cli.py`：`Defaults to reading all unread items if no item is specified.` | 修改命令说明，不改命令本身。 |
-| 7 | `index.md` | `ruyi self clean` 被描述为“清除数据目录”，容易理解为裸命令即可执行清理。实际必须指定清理目标。 | 本地运行返回 `no data specified for cleaning`，退出码 1；`ruyi/cli/self_cli.py` 行为一致。 | 改为说明该命令需要具体清理选项。 |
-| 8 | `index.md` / `packages.mdx` | `ruyi update` 仍主要按单一默认软件源描述，没有体现多软件源行为。 | 本地 `ruyi update --help` 已有 `--repo REPO`；`ruyi repo list` 可列出软件源；`ruyi/ruyipkg/update_cli.py` 无参数时执行 `sync_all()`。 | 补充多软件源说明，并说明 `--repo` 用途。 |
-| 9 | `packages.mdx` | 软件包分类列表缺少 `board-util`。 | 当前 `packages-index/packages/` 中存在 `board-util/`。 | 补充该分类，或避免把易变化的分类列表写成固定完整清单。 |
-| 10 | `packages.mdx` | 多包安装示例中将 `gnu-upstream` 写成 `gnu-upsteam`。 | `packages-index` 中不存在 `gnu-upsteam`；存在 `gnu-upstream`。 | 修正拼写。 |
-| 11 | `intergration.mdx` | `ruyi list profiles` 示例输出已过时，仍使用旧的简单列表和 `needs flavor(s)`。 | 本地 0.48.0 输出已包含 `arch:` 与 `needs quirks:`；`ruyi/ruyipkg/profile_cli.py` 与实测一致。 | 更新示例输出，避免长期保留过长动态列表。 |
-| 12 | `intergration.mdx` | 示例中 `myhone-venv` 与 `myhome-venv` 混用。 | 文档静态检查。 | 统一示例名称。 |
-| 13 | `misc.mdx` | telemetry 的 `off` 被简单描述为“关闭遥测数据收集功能”，没有说明首次运行的一次性版本信息上传。 | `ruyisdk/ruyi/README.zh.md` 与 `ruyi/telemetry/provider.py` 均说明首次运行例外。 | 与官方源码和 README 的实际行为保持一致。 |
-| 14 | `cases/case2.md` | 前文使用 `gnu-milkv-milkv-duo-musl-bin`，后文却称当前工具链为 `gnu-milkv-milkv-duo-bin`。 | `packages-index` 中两个包都存在，分别对应 musl 与 glibc。 | 根据案例实际使用的工具链统一名称。 |
-| 15 | `cases/case5.md` | 代码块元信息存在明显格式错误：一处 `input` 引号不完整，一处写成 `inpupt`。 | 文档静态检查。 | 修正文档格式。 |
-| 16 | `cases/case5.md` | zlib 下载、进入目录和解压步骤中的文件路径不一致。 | 按现有命令顺序静态检查可见路径不一致。 | 正式修改前先完整运行该案例，再调整步骤。 |
-| 17 | `cases/case5.md` | Meson 示例硬编码 `/home/cyan/zlib-ng/venv/meson-cross.ini`。 | 文档静态检查。 | 改成可复用的路径表达，避免绑定某个用户目录。 |
+| 1 | [`Package-Manager/installation.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/installation.mdx) | 当前仍把预编译二进制作为第一推荐安装方式，但目前产品方向已调整为优先推荐 PyPI。 | 已确认产品要求；`ruyisdk/ruyi/README.zh.md` 也将 PyPI 标为推荐方式。 | 将 PyPI 调整为第一推荐，并同步安装方式顺序与默认 Tab。 |
+| 2 | [`Package-Manager/_pythonPip.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/_pythonPip.mdx) | PyPI 安装说明没有明确 Python 最低版本。 | `ruyisdk/ruyi/pyproject.toml` 在 0.48.0 与 0.52.0 均声明 `requires-python = ">=3.11"`。 | 明确写出 Python >= 3.11。 |
+| 3 | [`Package-Manager/misc.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/misc.mdx) | 更新和卸载只覆盖预编译二进制和系统包管理器，没有覆盖 PyPI / pipx。 | 文档内部对照。 | PyPI 成为首选后补充对应升级与卸载说明。 |
+| 4 | [`installation.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/installation.mdx) / [`_linuxPkg.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/_linuxPkg.mdx) | 顶层把系统包管理器安装概括为类似 `apt` / `yum`，并称前提是发行版官方收录；实际子页主要是 AUR、Arch Linux CN 与 Gentoo overlay。 | 文档内部对照。 | 调整顶层概括，使其与实际支持来源一致。 |
+| 5 | [`Package-Manager/index.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/index.md) | `ruyi list --name-contains` 与 `ruyi list --verbose --name-contains` 被当作完整命令，但该选项必须带参数。 | 本地运行提示 `expected 1 argument`，退出码 2；`ruyi/ruyipkg/list_cli.py` 中为 `nargs=1`。 | 修改说明或示例，但正式改命令前保持实际验证。 |
+| 6 | [`Package-Manager/index.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/index.md) | `ruyi news read` 被描述为“读取下一条新闻”，实际是不指定 item 时读取全部未读新闻。 | `ruyi/ruyipkg/news_cli.py`：`Defaults to reading all unread items if no item is specified.` | 修改命令说明，不改命令本身。 |
+| 7 | [`Package-Manager/index.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/index.md) | `ruyi self clean` 被描述为“清除数据目录”，容易理解为裸命令即可执行清理。实际必须指定清理目标。 | 本地运行返回 `no data specified for cleaning`，退出码 1；`ruyi/cli/self_cli.py` 行为一致。 | 改为说明该命令需要具体清理选项。 |
+| 8 | [`index.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/index.md) / [`packages.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/packages.mdx) | `ruyi update` 仍主要按单一默认软件源描述，没有体现多软件源行为。 | 本地 `ruyi update --help` 已有 `--repo REPO`；`ruyi repo list` 可列出软件源；`ruyi/ruyipkg/update_cli.py` 无参数时执行 `sync_all()`。 | 补充多软件源说明，并说明 `--repo` 用途。 |
+| 9 | [`Package-Manager/packages.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/packages.mdx) | 软件包分类列表缺少 `board-util`。 | 当前 `packages-index/packages/` 中存在 `board-util/`。 | 补充该分类，或避免把易变化的分类列表写成固定完整清单。 |
+| 10 | [`Package-Manager/packages.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/packages.mdx) | 多包安装示例中将 `gnu-upstream` 写成 `gnu-upsteam`。 | `packages-index` 中不存在 `gnu-upsteam`；存在 `gnu-upstream`。 | 修正拼写。 |
+| 11 | [`Package-Manager/intergration.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/intergration.mdx) | `ruyi list profiles` 示例输出已过时，仍使用旧的简单列表和 `needs flavor(s)`。 | 本地 0.48.0 输出已包含 `arch:` 与 `needs quirks:`；`ruyi/ruyipkg/profile_cli.py` 与实测一致。 | 更新示例输出，避免长期保留过长动态列表。 |
+| 12 | [`Package-Manager/intergration.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/intergration.mdx) | 示例中 `myhone-venv` 与 `myhome-venv` 混用。 | 文档静态检查。 | 统一示例名称。 |
+| 13 | [`Package-Manager/misc.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/misc.mdx) | telemetry 的 `off` 被简单描述为“关闭遥测数据收集功能”，没有说明首次运行的一次性版本信息上传。 | `ruyisdk/ruyi/README.zh.md` 与 `ruyi/telemetry/provider.py` 均说明首次运行例外。 | 与官方源码和 README 的实际行为保持一致。 |
+| 14 | [`Package-Manager/cases/case2.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/cases/case2.md) | 前文使用 `gnu-milkv-milkv-duo-musl-bin`，后文却称当前工具链为 `gnu-milkv-milkv-duo-bin`。 | `packages-index` 中两个包都存在，分别对应 musl 与 glibc。 | 根据案例实际使用的工具链统一名称。 |
+| 15 | [`Package-Manager/cases/case5.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/cases/case5.md) | 代码块元信息存在明显格式错误：一处 `input` 引号不完整，一处写成 `inpupt`。 | 文档静态检查。 | 修正文档格式。 |
+| 16 | [`Package-Manager/cases/case5.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/cases/case5.md) | zlib 下载、进入目录和解压步骤中的文件路径不一致。 | 按现有命令顺序静态检查可见路径不一致。 | 正式修改前先完整运行该案例，再调整步骤。 |
+| 17 | [`Package-Manager/cases/case5.md`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/cases/case5.md) | Meson 示例硬编码 `/home/cyan/zlib-ng/venv/meson-cross.ini`。 | 文档静态检查。 | 改成可复用的路径表达，避免绑定某个用户目录。 |
 
 ## 本地验证记录
 
