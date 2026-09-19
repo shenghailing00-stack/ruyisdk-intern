@@ -10,3 +10,4 @@ This folder collects visible outputs and related links from my RuyiSDK internshi
 - [VS Code case1 code block rendering fix](./vscode-case1-code-block-rendering/)
 - [VS Code Marketplace link fix](./vscode-marketplace-link-fix/)
 - [RuyiSDK docs navigation review and supplement checklist](./docs-navigation-review/)
+- [RuyiSDK package manager documentation review](./package-manager-doc-review/)
