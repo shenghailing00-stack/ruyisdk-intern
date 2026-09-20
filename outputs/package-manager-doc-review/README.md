@@ -7,7 +7,7 @@
 审查原则：
 
 - 以 `ruyisdk/ruyi`、`ruyisdk/packages-index` 源码和仓库内容为主要依据。
-- 涉及 CLI 行为时，尽量结合本地实际运行结果确认。
+- 涉及 CLI 行为时，结合本地实际运行结果确认。
 - 不根据第三方网页或 AI 推测补充产品功能。
 - 文案修改优先保证真实、简洁、易懂。
 - 涉及命令时不随意改写；需要修改的命令应先验证实际行为。
@@ -44,8 +44,7 @@ WSL
 
 ## 已确认问题
 
-> 编号只是问题编号，不代表文件层级。下方“文档位置”可直接点击打开 `ruyisdk/docs` 的 `restructure-zh` 分支对应文件。
-
+> 编号是问题编号
 | 编号 | 文档位置（点击打开） | 问题 | 依据 | 建议 |
 | --- | --- | --- | --- | --- |
 | 1 | [`Package-Manager/installation.mdx`](https://github.com/ruyisdk/docs/blob/restructure-zh/Package-Manager/installation.mdx) | 当前仍把预编译二进制作为第一推荐安装方式，但目前产品方向已调整为优先推荐 PyPI。 | 已确认产品要求；`ruyisdk/ruyi/README.zh.md` 也将 PyPI 标为推荐方式。 | 将 PyPI 调整为第一推荐，并同步安装方式顺序与默认 Tab。 |
@@ -165,14 +164,3 @@ info: package ruyisdk-demo-0.20231114.0 has been extracted to ruyisdk-demo-0.202
 - 只保留与案例相关的关键输出。
 - 提示用户以当前实际命令输出为准。
 - 避免依赖固定编号完成操作。
-
-## 修改原则
-
-后续正式修改时：
-
-1. 纯拼写、格式和文档内部不一致可直接修正。
-2. 涉及 CLI 行为时先核对 `ruyisdk/ruyi` 源码。
-3. 涉及软件包、profile、设备信息时核对 `ruyisdk/packages-index`。
-4. 会改变命令或操作流程的修改应尽量先在本地运行确认。
-5. 使用 AI 优化描述时，优先改说明文字，不主动改命令。
-6. 以“真实、与产品功能一致”为第一原则，不补写无法从源码或实际行为确认的功能。
