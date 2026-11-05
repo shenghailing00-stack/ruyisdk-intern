@@ -11,3 +11,4 @@ This folder collects visible outputs and related links from my RuyiSDK internshi
 - [VS Code Marketplace link fix](./vscode-marketplace-link-fix/)
 - [RuyiSDK docs navigation review and supplement checklist](./docs-navigation-review/)
 - [RuyiSDK package manager documentation review](./package-manager-doc-review/)
+- [RuyiSDK 文档整理与重构实践经验分享](./package-manager-doc-review/documentation-experience.md)
